@@ -32,8 +32,11 @@ body {
 
 
 .publication-title {
-  font-family: Lato;
+  font-family: "EB Garamond", serif;
   margin-top: -20px;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
 }
 
 .publication-banner {

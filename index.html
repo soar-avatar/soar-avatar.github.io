@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <!-- HTML Meta Tags -->
-  <title>Expressive Text-to-Image Generation with Rich Text</title>
-  <meta name="description" content="Expressive Text-to-Image Generation with Rich Text">
+  <title>SDS Bridge</title>
+  <meta name="description" content="Rethinking Score Distillation as a Bridge Between Image Distributions">
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://rich-text-to-image.github.io/">
@@ -179,112 +179,111 @@
       </div>
     </div>
   </section>
-  <section class="hero is-light is-small">
+
+  <!-- Test Section -->
+
+  <div class="hero-body" style="padding-inline: 200px;">
+    <div class="columns is-centered" id="div_livingroom" style="display: true;">
+      <div class="column">
+        <div class="container has-text-justified">
+          <p>
+            <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
+              the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
+              pre-trained diffusion model. Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br></span>
+              <span style="font-size:1.1em;"> SDS is known to suffer from several
+                significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <!-- <img src="./image_assets/font_tri.png" id="image_livingroom" width="99%"> -->
+          <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
+            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body" style="padding-inline: 200px;">
+    <div class="columns is-centered" id="div_livingroom" style="display: true;">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%">
+          <!-- <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
+            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
+          </video> -->
+        </div>
+      </div>
+      <div class="column">
+        <div class="container has-text-justified">
+          <p>
+            <span style="font-size:1.1em;"> We investigate the core issues with SDS by casting it as a Schrödinger Bridge (SB) problem, which finds the optimal
+              transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
+              natural image distribution).<br><br></span>
+              <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
+                source distribution to corresponding samples in the target distribution.  In an optimization framework,
+                the difference between paired source and target samples, computed with an SB, can be used as a
+                gradient to update the source. <br><br></span>
+            <br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body" style="padding-inline: 200px;">
+    <div class="columns is-centered" id="div_livingroom" style="display: true;">
+      <div class="column">
+        <div class="container has-text-justified">
+          <p>
+            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
+              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
+                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./image_assets/schrodinger-bridge.svg" id="image_livingroom" width="99%">
+          <!-- <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
+            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
+          </video> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero  is-small">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
         <!-- <h2 class="title is-3">Rich-text-to-image Generation</h2> -->
-        <div class="has-text-justified">
+        <div class="container has-text-justified">
           <p>
-            We explore using versatile format information from rich text like font size, color, style, and
-            footnote for text-to-image generation. Our framework enables intuitive local style control,
-            precise color generation, and supplementary description for long prompts.
+            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
+              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
+                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
+            <br>
           </p>
-          <br>
         </div>
         <!-- row 1 -->
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <div class="tab_container">
-                <div id="juxtapose-embed1" data-startingposition="30%" data-animate="true" class="juxtapose">
-                  <div class="jx-slider">
-                    <div class="jx-handle " style="left: 54.53%;">
-                      <div class="jx-arrow jx-left"></div>
-                      <div class="jx-control">
-                        <div class="jx-controller" tabindex="0" role="slider" aria-valuenow="50" aria-valuemin="0"
-                          aria-valuemax="100"></div>
-                      </div>
-                      <div class="jx-arrow jx-right"></div>
-                    </div>
-                    <div class="jx-image jx-left " style="width: 54.53%;">
-                      <img src="./image_assets/teaser/pizza_plain.png" alt="" data-label="Plain-text">
-                    </div>
-                    <div class="jx-image jx-right " style="width: 45.47%;"><img
-                        src="./image_assets/teaser/pizza_rich.png" alt="" data-label="Rich-text">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="has-text-justified">
-              <p>
-                <span style="font-family:roboto;">"A pizza with mushrooms, pepperonis, and
-                  <span style="font-size: 1.6em;">pineapples</span> on the top, 4k, photorealism."</span>
-              </p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="content">
-              <div class="tab_container">
-                <div id="juxtapose-embed2" data-startingposition="30%" data-animate="true" class="juxtapose">
-                  <div class="jx-slider">
-                    <div class="jx-handle " style="left: 54.53%;">
-                      <div class="jx-arrow jx-left"></div>
-                      <div class="jx-control">
-                        <div class="jx-controller" tabindex="0" role="slider" aria-valuenow="50" aria-valuemin="0"
-                          aria-valuemax="100"></div>
-                      </div>
-                      <div class="jx-arrow jx-right"></div>
-                    </div>
-                    <div class="jx-image jx-left " style="width: 54.53%;"><img
-                        src="./image_assets/teaser/sea_plain.png" alt="" data-label="Plain-text">
-                    </div>
-                    <div class="jx-image jx-right " style="width: 45.47%;"><img
-                        src="./image_assets/teaser/sea_rich.png" alt="" data-label="Rich-text">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="has-text-justified">
-              <p>
-                <span style="font-family:roboto;">"A <span style="font-family:sofia;">night sky filled with stars</span> above <span style="font-family:Inconsolata;">a turbulent sea</span> with giant waves."</span>
-              </p>
-              <p>
-                <span style="font-family:roboto;">Styles: <span style="font-family:sofia;">Van Gogh</span>, <span style="font-family:Inconsolata;">Ukiyo-e</span></span>
-              </p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="content">
-              <div class="tab_container">
-                <div id="juxtapose-embed1" data-startingposition="30%" data-animate="true" class="juxtapose">
-                  <div class="jx-slider">
-                    <div class="jx-handle " style="left: 54.53%;">
-                      <div class="jx-arrow jx-left"></div>
-                      <div class="jx-control">
-                        <div class="jx-controller" tabindex="0" role="slider" aria-valuenow="50" aria-valuemin="0"
-                          aria-valuemax="100"></div>
-                      </div>
-                      <div class="jx-arrow jx-right"></div>
-                    </div>
-                    <div class="jx-image jx-left " style="width: 54.53%;">
-                      <img src="./image_assets/teaser/church_plain.png" alt="" data-label="Plain-text">
-                    </div>
-                    <div class="jx-image jx-right " style="width: 45.47%;"><img
-                        src="./image_assets/teaser/church_rich.png" alt="" data-label="Rich-text">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="has-text-justified">
-              <p>
-                <span style="font-family:roboto;">"A Gothic <span style="color:rgb(246, 128, 170);">church</span> in the sunset with a beautiful landscape in the background.
-                  "</span>
-              </p>
-            </div>
-          </div>
+        <div class="content has-text-centered">
+          <img src="./image_assets/method.png" id="image_livingroom" width="99%">
+          <!-- <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
+            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
+          </video> -->
+        </div>
+
+        <div class="container has-text-justified">
+          <p>
+            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
+              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
+                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
+            <br>
+          </p>
         </div>
         <!-- row 2 -->
         <div class="columns is-centered">
