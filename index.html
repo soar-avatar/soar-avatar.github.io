@@ -6,22 +6,26 @@
 
   <!-- HTML Meta Tags -->
   <title>SDS Bridge</title>
-  <meta name="description" content="Rethinking Score Distillation as a Bridge Between Image Distributions">
+  <meta name="description" content="Score Distillation as a Bridge Between Image Distributions">
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://rich-text-to-image.github.io/">
+  <meta property="og:url" content="https://sds-bridge.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Expressive Text-to-Image Generation with Rich Text">
-  <meta property="og:description" content="Expressive Text-to-Image Generation with Rich Text">
-  <meta property="og:image" content="https://rich-text-to-image.github.io/image_assets/preview.jpg">
+  <meta property="og:title" content="Score Distillation as a Bridge Between Image Distributions">
+  <meta property="og:description" content="Score Distillation as a Bridge Between Image Distributions">
+  <meta property="og:image" content="https://sds-bridge.github.io/image_assets/method2.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="rich-text-to-image.github.io">
-  <meta property="twitter:url" content="https://rich-text-to-image.github.io/">
-  <meta name="twitter:title" content="Expressive Text-to-Image Generation with Rich Text">
-  <meta name="twitter:description" content="Expressive Text-to-Image Generation with Rich Text">
-  <meta name="twitter:image" content="https://rich-text-to-image.github.io/image_assets/preview.jpg">
+  <meta property="twitter:domain" content="sds-bridge.github.io/">
+  <meta property="twitter:url" content="https://sds-bridge.github.io/">
+  <meta name="twitter:title" content="Score Distillation as a Bridge Between Image Distributions">
+  <meta name="twitter:description" content="Score Distillation as a Bridge Between Image Distributions">
+  <meta name="twitter:image" content="https://sds-bridge.github.io/image_assets/method2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,490;1,490&display=swap" rel="stylesheet">
 
 
   <!-- Google tag (gtag.js) -->
@@ -62,14 +66,13 @@
 </head>
 
 
-
 <body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title">Rethinking Score Distillation as a Bridge Between Image Distributions</h1>
+            <h1 class="title is-2 publication-title">Score Distillation as a Bridge Between Image Distributions</h1>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -107,7 +110,12 @@
                 &nbsp</span>
               <span class="author-block"><sup>2</sup>University of Maryland, College Park &nbsp</span>
             </div>
-<!-- 
+            <br>
+            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
+              <source src="./video_assets/teaser/website_teaserv2.mp4" type="video/mp4">
+            </video>
+
+            <!-- 
             <div class="is-size-5 publication-venue">
               ICCV 2023
             </div> -->
@@ -185,52 +193,71 @@
 
   <!-- Test Section -->
 
-  <div class="hero-body" style="padding-inline: 260px;">
-    <div class="columns is-centered" id="div_livingroom" style="display: true;">
-      <div class="column">
-        <div class="container has-text-justified">
-          <p>
-            <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
-              the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
-              pre-trained diffusion model. Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br></span>
-              <span style="font-size:1.1em;"> SDS is known to suffer from several
-                significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
-            <br>
-          </p>
-        </div>
+  <!-- <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+      <div class="container has-text-justified">
+        <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" height="100%">
+          <source src="./video_assets/teaser/website_teaserv1.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="column">
-        <div class="content">
-          <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" height="100%">
-            <source src="./video_assets/techfigure1/fig1_v3.mp4" type="video/mp4">
-          </video>
+    </div>
+    </div>
+  </section> -->
+
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered" id="div_livingroom" style="display: true;">
+        <div class="column">
+          <div class="container has-text-justified">
+            <p>
+              <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
+                the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
+                pre-trained diffusion model. Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br></span>
+                <span style="font-size:1.1em;"> SDS is known to suffer from several
+                  significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
+              <br>
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" height="100%">
+              <source src="./video_assets/techfigure1/fig1_v3.mp4" type="video/mp4">
+            </video>
+            <div class="container has-text-centered" >
+              <span style="font-size:0.85em;">SDS-like methods optimized images to the natural image manifold. We can compute this gradient on renders from random 3D viewpoints.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="hero-body" style="padding-inline: 200px;">
-    <div class="columns is-centered" id="div_livingroom" style="display: true;">
-      <div class="column">
-        <div class="content has-text-centered">
-          <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
-          <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="60%">
-            <source src="./video_assets/fig2.mp4" type="video/mp4">
-          </video>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered" id="div_livingroom" style="display: true;">
+        <div class="column">
+          <div class="content has-text-centered">
+            <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
+            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="60%">
+              <source src="./video_assets/fig2.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="container has-text-justified">
-          <p>
-            <span style="font-size:1.1em;"> We investigate the core issues with SDS by casting it as a Schrödinger Bridge (SB) problem, which finds the optimal
-              transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
-              natural image distribution).<br><br></span>
-              <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
-                source distribution to corresponding samples in the target distribution.  In an optimization framework,
-                the difference between paired source and target samples, computed with an SB, can be used as a
-                gradient to update the source. <br><br></span>
-            <br>
-          </p>
+        <div class="column">
+          <div class="container has-text-justified">
+            <p>
+              <span style="font-size:1.1em;"> We investigate the core issues with SDS by casting it as a Schrödinger Bridge (SB) problem, which finds the optimal
+                transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
+                natural image distribution).<br><br></span>
+                <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
+                  source distribution to corresponding samples in the target distribution.  In an optimization framework,
+                  the difference between paired source and target samples, computed with an SB, can be used as a
+                  gradient to update the source. <br><br></span>
+              <br>
+            </p>
+          </div>
         </div>
       </div>
     </div>

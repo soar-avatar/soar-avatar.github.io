@@ -32,10 +32,10 @@ body {
 
 
 .publication-title {
-  font-family: "EB Garamond", serif;
-  margin-top: 20px;
+  font-family: "Aleo", serif;
+  margin-top: -20px;
   font-optical-sizing: auto;
-  font-weight: 450;
+  font-weight: 500;
   font-style: normal;
 }
 
