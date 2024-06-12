@@ -259,19 +259,49 @@
     </div>
   </section>
 
+  <div class="hero-body" style="padding-inline: 260px;">
+    <div class="columns is-centered" id="div_livingroom" style="display: true;">
+      <div class="column">
+        <div class="container has-text-justified">
+          <p>
+            <span style="font-size:1.1em;">The SDS family of methods can be view as per-iteration estimates of the DDIB.
+              Suppose that \(\psi_{t^\prime, \text{src}}\) and \(\psi_{t^\prime, \text{tgt}}\) denote the paths obtained by solving the PF-ODE
+              from \(t\) to \(0\), both starting from  \(\mathbf{x}_{\theta, t}\), such that \(\psi_{0, \text{src}} \in p_\text{src}\), 
+              \(\psi_{0, \text{tgt}} \in p_\text{tgt}\), \(\psi_{t, \text{src}}=\psi_{t, \text{tgt}}=\mathbf{x}_{\theta, t}\) (simplify this language). 
+              This forms a dual diffusion bridge from \(\psi_{0, \text{src}}\) to \(\psi_{0, \text{tgt}}\), with displacement:<br></span>
+              <span style="font-size:1.1em;">  \[\Delta \mathbf{\epsilon}_\text{SBP}^* = \psi_{0, \text{tgt}} - \psi_{0, \text{src}}\] </span>
+              <span style="font-size:1.1em;">  Fully simulating this bridge involves solving two PF-ODEs, which invokes dozens of neural function evaluations (NFEs) to estimate the gradient each iteration. 
+                Instead, one can estimate each half of the bridge with a single-step prediction: </span>
+              <span style="font-size:1.1em;">  \[\mathbf{\epsilon}_\text{SBP} = \mathbf{\epsilon}_{\phi, \text{tgt}}(\mathbf{x}_{\theta, t})-\mathbf{\epsilon}_{\phi, \text{src}}(\mathbf{x}_{\theta, t})\] 
+                where we add noise \(\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})\) to the image \(x_{\theta}\) obtain a latent input for \(\mathbf{\epsilon}_{\phi}\) at timestep \(t\). 
+                That is, \(\mathbf{x}_{\theta, t}=\alpha_t \mathbf{x}+\sigma_t \mathbf{\epsilon}\). 
+                This estimate is subject to the following sources of errors.
+              </span>
+              <br><br>
+              <ol style="font-size:1.1em;">
+                <li>
+                    <p>First-order approximation error. Instead of performing full PF-ODE simulations, the single-step noising and prediction are less accurate and can induce errors. Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[3]</a> and SDI <a href="https://lukoianov.com/sdi/">[4]</a> can be interpreted as reducing this error with a multi-step simulation to obtain \(\mathbf{x}_{\theta, t}\)</p>
+                </li>
+                <br>
+                <li>
+                    <p>Source distribution mismatch. The dual diffusion bridge relies on \(\mathbf{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, \(x_{\theta}\). A series of works can be viewed as improving this error <a href="#your-link">[]</a> by computing more accurate \(\mathbf{\epsilon}_{\phi, \text{tgt}}\).</p>
+                </li>
+            </ol>
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="./image_assets/method2.png" id="image_livingroom" width="99%">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
-        <!-- <h2 class="title is-3">Rich-text-to-image Generation</h2> -->
-        <div class="container has-text-centered">
-          <p>
-            <span style="font-size:1.1em;"> The SDS family of methods can be viewed as per-iteration estimates of the DDIB. <br><br></span>
-          </p>
-        </div>
-        <!-- row 1 -->
-        <div class="content has-text-centered" >
-          <img src="./image_assets/method.png" id="image_livingroom" width="99%">
-        </div>
 
         <div class="container has-text-justified">
           <p>
