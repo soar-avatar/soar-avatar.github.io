@@ -35,6 +35,9 @@
   </script>
   <title>Expressive Text-to-Image Generation with Rich Text</title>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <link href="./assets/css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
@@ -182,7 +185,7 @@
 
   <!-- Test Section -->
 
-  <div class="hero-body" style="padding-inline: 200px;">
+  <div class="hero-body" style="padding-inline: 260px;">
     <div class="columns is-centered" id="div_livingroom" style="display: true;">
       <div class="column">
         <div class="container has-text-justified">
@@ -234,47 +237,40 @@
     </div>
   </div>
 
-  <div class="hero-body" style="padding-inline: 200px;">
-    <div class="columns is-centered" id="div_livingroom" style="display: true;">
-      <div class="column">
-        <div class="container has-text-justified">
-          <p>
-            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
-              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
-                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
-            <br>
-          </p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content has-text-centered">
-          <img src="./image_assets/schrodinger-bridge.svg" id="image_livingroom" width="99%">
-          <!-- <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
-            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
-          </video> -->
-        </div>
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+      <div class="container has-text-justified">
+        <p>
+          <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
+          <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
+              Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
+              <div class="content has-text-centered">
+                <img src="./image_assets/schrodinger-bridge.svg" id="image_livingroom" width="99%">
+              </div>
+              <span style="font-size:1.1em;"> We can build a DDIB by solving the forward (noising) PF-ODE to invert the source image to the latent distribution. </span>
+            <p>\[dx = [f(\mathbf{x}, t)-\frac{1}{2}g^2(t)\nabla_{\mathbf{x}} \log p_t(\mathbf{x})] dt \]</p>
+            <span style="font-size:1.1em;"> We can then sample the corresponding target image by solving the reverse (denoising) PF-ODE. This deterministic conversion between
+              image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
+          <br>
+        </p>
       </div>
     </div>
-  </div>
+    </div>
+  </section>
 
-  <section class="hero  is-small">
+  <section class="hero is-small">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
         <!-- <h2 class="title is-3">Rich-text-to-image Generation</h2> -->
-        <div class="container has-text-justified">
+        <div class="container has-text-centered">
           <p>
-            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
-              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
-                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
-            <br>
+            <span style="font-size:1.1em;"> The SDS family of methods can be viewed as per-iteration estimates of the DDIB. <br><br></span>
           </p>
         </div>
         <!-- row 1 -->
-        <div class="content has-text-centered">
+        <div class="content has-text-centered" >
           <img src="./image_assets/method.png" id="image_livingroom" width="99%">
-          <!-- <video id="dollyzoom" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
-            <source src="./video_assets/teaser_animation.mp4" type="video/mp4">
-          </video> -->
         </div>
 
         <div class="container has-text-justified">
