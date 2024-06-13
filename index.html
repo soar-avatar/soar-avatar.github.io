@@ -177,94 +177,57 @@
             <video id="teaservid" autoplay="" muted="" loop="" playsinline="" width="100%">
               <source src="./video_assets/teaser/website_teaser_crop.mp4" type="video/mp4">
             </video>
-
-            <script>
-              var video = document.getElementById('teaservid');
-          
-              // Listen for the 'ended' event
-              video.addEventListener('ended', function() {
-                  // Remove 'loop' to prevent automatic restart
-                  this.loop = false;
-                  
-                  // Wait for 3000 milliseconds (3 seconds) before replaying
-                  setTimeout(function() {
-                      video.play();  // Play the video again
-                  }, 3000);
-              });
-          </script>
           </div>
         </div>
-        <!-- <div class="has-text-justified">
-          <iframe width="960" height="540" src="https://www.youtube.com/embed/ihDbAUh0LXk?si=ASIzJd_Q2Tq1pwjq" 
-          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div> -->
+        <br>
+        <div class="container has-text-justified">
+          <p>
+            <span class="title is-2 publication-title" style="font-size:1.5em;">A Better Understanding of SDS</span><br><br>
+            <div class="content">
+              <div class="container has-text-centered">
+                <video id="dollyzoom" autoplay="" muted="" controls="" loop="" playsinline="" width="70%">
+                  <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
+                </video> <br>
+                <span style="font-size:0.85em;"> We can compute a gradient on differentiable renders from random 3D viewpoints to generate 3D objects.</span>
+              </div>
+              <br>
+            <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
+              the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
+              pre-trained diffusion model.
+              <!-- Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br> -->
+            </span>
+              <span style="font-size:1.1em;"> However, SDS is known to suffer from several
+                significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
+          </p>
+          <div class="columns is-centered" id="div_livingroom" style="display: true;">
+            <div class="column">
+              <div class="content has-text-centered">
+                <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
+                <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="90%">
+                  <source src="./video_assets/fig2_2.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="column">
+              <div class="container has-text-justified">
+                <p>
+                  <span style="font-size:1.1em;"> <b>We cast SDS as a Schrödinger Bridge (SB) problem</b>, which finds the optimal
+                    transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
+                    natural image distribution).<br><br></span>
+                    <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
+                      source distribution to corresponding samples in the target distribution.  In an optimization framework,
+                      the difference between paired source and target samples, computed with an SB, can be used as a
+                      gradient to update the source. <br><br></span> -->
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Test Section -->
-
-  <!-- <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop has-text-centered">
-      <div class="container has-text-justified">
-        <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" height="100%">
-          <source src="./video_assets/teaser/website_teaserv1.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-    </div>
-  </section> -->
-
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="container has-text-justified">
-        <p>
-          <span class="title is-2 publication-title" style="font-size:1.5em;">A Better Understanding of SDS</span><br><br>
-          <div class="content">
-            <div class="container has-text-centered">
-              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
-                <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
-              </video> <br>
-              <span style="font-size:0.85em;"> We can compute a gradient on differentiable renders from random 3D viewpoints to generate 3D objects.</span>
-            </div>
-            <br>
-          <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
-            the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
-            pre-trained diffusion model.
-            <!-- Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br> -->
-          </span>
-            <span style="font-size:1.1em;"> However, SDS is known to suffer from several
-              significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
-        </p>
-        <div class="columns is-centered" id="div_livingroom" style="display: true;">
-          <div class="column">
-            <div class="content has-text-centered">
-              <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
-              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="90%">
-                <source src="./video_assets/fig2_2.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="column">
-            <div class="container has-text-justified">
-              <p>
-                <span style="font-size:1.1em;"> <b>We cast SDS as a Schrödinger Bridge (SB) problem</b>, which finds the optimal
-                  transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
-                  natural image distribution).<br><br></span>
-                  <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
-                    source distribution to corresponding samples in the target distribution.  In an optimization framework,
-                    the difference between paired source and target samples, computed with an SB, can be used as a
-                    gradient to update the source. <br><br></span> -->
-                <br>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
 
   <section class="hero is-small">
     <div class="hero-body">
@@ -690,7 +653,7 @@
                 <h2 class="title is-3 has-text-centered">Acknowledgment</h2>
                 <div class="content has-text-justified">
                   <p>
-                    We thank Matthew Tancik, Jiaming Song, Riley Peterlinz, Ayaan Haque, Ethan Weber, Konpat Preechakul, Amit Kohli and Ben Poole for their helpful feedback and discussion. <br><br>
+                    We thank Matthew Tancik, Jiaming Song, Riley Peterlinz, Ayaan Haque, Ethan Weber, Konpat Preechakul, Ruiqi Gao, Amit Kohli and Ben Poole for their helpful feedback and discussion. <br><br>
                     This project is supported in part by a Google Research Scholar award and IARPA DOI/IBC No. 140D0423C0035. The
                     views and conclusions contained herein are those of the authors and do not
                     represent the official policies or endorsements of these institutions.
