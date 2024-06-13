@@ -183,22 +183,27 @@
         <div class="container has-text-justified">
           <p>
             <span class="title is-2 publication-title" style="font-size:1.5em;">A Better Understanding of SDS</span><br><br>
-            <div class="content">
-              <div class="container has-text-centered">
-                <video id="dollyzoom" autoplay="" muted="" controls="" loop="" playsinline="" width="70%">
-                  <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
-                </video> <br>
-                <span style="font-size:0.85em;"> We can compute a gradient on differentiable renders from random 3D viewpoints to generate 3D objects.</span>
-              </div>
-              <br>
-            <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
-              the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
-              pre-trained diffusion model.
-              <!-- Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br> -->
-            </span>
-              <span style="font-size:1.1em;"> However, SDS is known to suffer from several
-                significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
           </p>
+          <div class="columns is-centered" id="div_livingroom" style="display: true;">
+            <div class="column">
+              <div class="container has-text-justified">
+                <p>
+                  <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> enables 
+                    the use of diffusion priors for tasks operating in data poor domains. However, it suffers from signficant artifacts that a number of follow-up works have tried to address.
+                  </span>
+                  <br>
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content has-text-centered">
+                <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
+                <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
+                  <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
           <div class="columns is-centered" id="div_livingroom" style="display: true;">
             <div class="column">
               <div class="content has-text-centered">
@@ -214,10 +219,6 @@
                   <span style="font-size:1.1em;"> <b>We cast SDS as a Schrödinger Bridge (SB) problem</b>, which finds the optimal
                     transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
                     natural image distribution).<br><br></span>
-                    <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
-                      source distribution to corresponding samples in the target distribution.  In an optimization framework,
-                      the difference between paired source and target samples, computed with an SB, can be used as a
-                      gradient to update the source. <br><br></span> -->
                   <br>
                 </p>
               </div>
