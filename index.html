@@ -174,9 +174,24 @@
             </div>
             <br>
 
-            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
+            <video id="teaservid" autoplay="" muted="" loop="" playsinline="" width="100%">
               <source src="./video_assets/teaser/website_teaser_crop.mp4" type="video/mp4">
             </video>
+
+            <script>
+              var video = document.getElementById('teaservid');
+          
+              // Listen for the 'ended' event
+              video.addEventListener('ended', function() {
+                  // Remove 'loop' to prevent automatic restart
+                  this.loop = false;
+                  
+                  // Wait for 3000 milliseconds (3 seconds) before replaying
+                  setTimeout(function() {
+                      video.play();  // Play the video again
+                  }, 3000);
+              });
+          </script>
           </div>
         </div>
         <!-- <div class="has-text-justified">
@@ -366,7 +381,7 @@
         </div>
       </div>
       <span style="font-size:1.1em;"> We validate our findings by using different SDS methods to optimize an image. 
-        Ours achieves better quality (with a lower FID) without sacrificing efficiency. 
+        Ours achieves better quality (lower FID) without sacrificing efficiency. 
       </span>
       <br><br>
       <div class="container is-max-desktop has-text-centered">
