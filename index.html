@@ -353,12 +353,79 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-            <div class="container has-text-centered">
-              <h2 class="title is-2 publication-title" style="font-size:1.7em;">Text-based Image Optimization </h2>
-            </div>
+          <div class="container has-text-centered">
+            <h2 class="title is-2 publication-title" style="font-size:1.7em;">Text-based Image Optimization </h2>
           </div>
         </div>
       </div>
+      <span style="font-size:1.1em;"> We validify our findings by using different SDS methods to optimize an image. Ours achieves better quality (with a lower FID) without scrafiicing efficiency. 
+      </span>
+      <br><br>
+      <div class="container is-max-desktop has-text-centered">
+        <div class="columns is-centered">
+            <div class="column is-5">
+                <p>SDS</p>
+            </div>
+            <div class="column is-5">
+                <p>NFSD</p>
+            </div>
+            <div class="column is-5">
+                <p>CSD</p>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-0">
+                  <source src="./video_assets/2D_optimization/sds.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=86.02, time=4.48min</p>
+            </div>
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-1">
+                  <source src="./video_assets/2D_optimization/nfsd.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=91.70, time=7.20min</p>
+            </div>
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-2">
+                  <source src="./video_assets/2D_optimization/csd.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=89.96, time=6.21min</p>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-5">
+                <p>VSD</p>
+            </div>
+            <div class="column is-5">
+                <p>VSD+Full Bridge</p>
+            </div>
+            <div class="column is-5">
+                <p>Ours</p>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-0">
+                  <source src="./video_assets/2D_optimization/vsd.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=59.22, time=16.02min</p>
+              </div>
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-1">
+                  <source src="./video_assets/2D_optimization/vsd_inv.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=55.65, time=21.46min</p>
+              </div>
+            <div class="column is-5">
+                <video width="512" autoplay="" muted="" alt="Image 1" id="sect-2-sample-2">
+                  <source src="./video_assets/2D_optimization/ours.mp4" type="video/mp4">
+                </video>
+                <p>COCO-FID=67.89, time=4.48min</p>
+              </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Text-based NeRF Optimization -->
