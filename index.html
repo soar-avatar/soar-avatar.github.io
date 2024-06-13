@@ -202,60 +202,50 @@
 
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered" id="div_livingroom" style="display: true;">
-        <div class="column">
-          <div class="container has-text-justified">
-            <p>
-              <span class="title is-2 publication-title" style="font-size:1.5em;">A Better Understanding of SDS</span><br><br>
-              <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
-                the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
-                pre-trained diffusion model. Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br></span>
-                <span style="font-size:1.1em;"> SDS is known to suffer from several
-                  significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
-              <br>
-            </p>
-          </div>
-        </div>
-        <div class="column">
+      <div class="container has-text-justified">
+        <p>
+          <span class="title is-2 publication-title" style="font-size:1.5em;">A Better Understanding of SDS</span><br><br>
           <div class="content">
-            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
-              <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
-            </video>
-            <div class="container has-text-justified" >
-              <span style="font-size:0.85em;">SDS methods optimized images toward the natural image manifold. 
-                We can compute this gradient on renders from random 3D viewpoints to generate 3D objects.</span>
+            <div class="container has-text-centered">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
+                <source src="./video_assets/techfigure1/fig1_v5.mp4" type="video/mp4">
+              </video> <br>
+              <span style="font-size:0.85em;"> We can compute a gradient on differentiable renders from random 3D viewpoints to generate 3D objects.</span>
+            </div>
+            <br>
+          <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> (SDS) has proven to be an important tool, enabling
+            the use of large-scale diffusion priors for tasks operating in data-poor domains. SDS and its variants optimize parametric images, i.e., images produced by a model like NeRF, with a
+            pre-trained diffusion model.
+            <!-- Such a method is valuable because it is applicable across many data-poor domains, including 3D. <br><br> -->
+          </span>
+            <span style="font-size:1.1em;"> However, SDS is known to suffer from several
+              significant artifacts, such as oversaturation and oversmoothing. We present an analytical framework for the SDS family of methods and a simple, efficient method to rectify these artifacts. <br><br></span>
+        </p>
+        <div class="columns is-centered" id="div_livingroom" style="display: true;">
+          <div class="column">
+            <div class="content has-text-centered">
+              <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="90%">
+                <source src="./video_assets/fig2_2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="column">
+            <div class="container has-text-justified">
+              <p>
+                <span style="font-size:1.1em;"> <b>We cast SDS as a Schrödinger Bridge (SB) problem</b>, which finds the optimal
+                  transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
+                  natural image distribution).<br><br></span>
+                  <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
+                    source distribution to corresponding samples in the target distribution.  In an optimization framework,
+                    the difference between paired source and target samples, computed with an SB, can be used as a
+                    gradient to update the source. <br><br></span> -->
+                <br>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="hero-body" style="padding-inline: 200px;">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered" id="div_livingroom" style="display: true;">
-        <div class="column">
-          <div class="content has-text-centered">
-            <!-- <img src="./image_assets/filler_image.png" id="image_livingroom" width="99%"> -->
-            <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="60%">
-              <source src="./video_assets/fig2.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <div class="column">
-          <div class="container has-text-justified">
-            <p>
-              <span style="font-size:1.1em;"> We investigate the core issues with SDS by casting it as a Schrödinger Bridge (SB) problem, which finds the optimal
-                transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
-                natural image distribution).<br><br></span>
-                <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
-                  source distribution to corresponding samples in the target distribution.  In an optimization framework,
-                  the difference between paired source and target samples, computed with an SB, can be used as a
-                  gradient to update the source. <br><br></span> -->
-              <br>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -266,28 +256,27 @@
       <div class="container has-text-justified">
         <span class="title is-2 publication-title" style="font-size:1.5em;">SDS Approximates a Schrödinger Bridge</span><br><br>
         <p>
-          <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models 
+          <!-- <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models 
             to approximate the bridge. This way, we leverage the rich priors learned over their datasets.</span>
           <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process 
             for solving image-to-image translation problems without requiring a paired image dataset. <br><br></span>
-              <!-- <div class="content has-text-centered">
-                <img src="./image_assets/schrodinger-bridge.svg" id="image_livingroom" width="99%">
-              </div> -->
               <span style="font-size:1.1em;"> We can build a DDIB by solving the forward (noising) PF-ODE to invert the source image to the latent distribution. </span>
             <p>\[dx = [f(\mathrm{x}, t)-\frac{1}{2}g^2(t)\nabla_{\mathrm{x}} \log p_t(\mathrm{x})] dt \]</p>
             <span style="font-size:1.1em;"> We can then sample the corresponding target image by solving the reverse (denoising) PF-ODE. This deterministic conversion between
               image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
-            <br>
+            <br> -->
             <div class="columns is-centered" id="div_livingroom" style="display: true;">
               <div class="column">
                 <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
                   <source src="./video_assets/diagrams/bridge1split_1.mp4" type="video/mp4">
                 </video>
+                <span style="font-size:0.85em;"> A Schrödinger Bridge transports between corresponding samples in the source and target distributions.</span>
               </div>
               <div class="column">
                 <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
                   <source src="./video_assets/diagrams/bridge1split_2.mp4" type="video/mp4">
                 </video>
+                <span style="font-size:0.85em;"> SDS is best understood as sampling SB paths, subject to approximation error.</span>
               </div>
             </div>
             <!-- <div class="container has-text-centered">
@@ -295,30 +284,34 @@
                 <source src="./video_assets/diagrams/bridgeanimation1_2.mp4" type="video/mp4">
               </video>
             </div> -->
-            <br><br><br>
-            <span style="font-size:1.1em;">The SDS family of methods can be view as per-iteration estimates of the Schrödinger Bridge.
-              This estimate is subject to the following two sources of errors:<br></span>
+            <!-- <br><br><br> -->
+            <span style="font-size:1.1em;">SDS methods and their variants can be well understood as per-iteration estimates of the Schrödinger Bridge.
+              These estimates are subject to the following two sources of errors:<br></span>
+            <!-- <br> -->
             <br>
+            <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error </span><br>
             <div class="container has-text-centered">
-              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
                 <source src="./video_assets/diagrams/bridgeanimation2_2.mp4" type="video/mp4">
               </video>
             </div>
             <br>
-            <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error. </span>
-            <span style="font-size:1.1em;"> Fully simulating this bridge involves solving two PF-ODEs, which invokes 
+            <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error. </span> -->
+            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. 
+              This requires solving two PF-ODEs, which invoke 
               dozens of neural function evaluations (NFEs) to estimate the gradient each iteration. Instead it is practical 
               to use single step estimates, which are less accurate and can induce errors. 
               Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[2]</a> and SDI <a href="https://lukoianov.com/sdi/">[3]</a> 
               can be interpreted as reducing this error with a multi-step simulation to obtain \(\mathrm{x}_{\theta, t}\).<br></span>
             <br>
+            <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch </span><br>
             <div class="container has-text-centered">
-              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
                 <source src="./video_assets/diagrams/bridgeanimation3_2.mp4" type="video/mp4">
               </video>
             </div>
             <br>
-            <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch. </span>
+            <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch. </span> -->
             <span style="font-size:1.1em;"> The dual diffusion bridge relies on 
               \(\mathrm{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, 
               \(x_{\theta}\). A series of works can be viewed as improving this error <a href=https://arxiv.org/abs/2305.16213>[4, </a>
