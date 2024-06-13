@@ -226,8 +226,9 @@
             <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" height="100%">
               <source src="./video_assets/techfigure1/fig1_v3.mp4" type="video/mp4">
             </video>
-            <div class="container has-text-centered" >
-              <span style="font-size:0.85em;">SDS-like methods optimized images to the natural image manifold. We can compute this gradient on renders from random 3D viewpoints.</span>
+            <div class="container has-text-justified" >
+              <span style="font-size:0.85em;">SDS methods optimized images toward the natural image manifold. 
+                We can compute this gradient on renders from random 3D viewpoints to generate 3D objects.</span>
             </div>
           </div>
         </div>
@@ -252,10 +253,10 @@
               <span style="font-size:1.1em;"> We investigate the core issues with SDS by casting it as a Schrödinger Bridge (SB) problem, which finds the optimal
                 transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
                 natural image distribution).<br><br></span>
-                <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
+                <!-- <span style="font-size:1.1em;"> Together, these paths form an optimal map from specific samples in the
                   source distribution to corresponding samples in the target distribution.  In an optimization framework,
                   the difference between paired source and target samples, computed with an SB, can be used as a
-                  gradient to update the source. <br><br></span>
+                  gradient to update the source. <br><br></span> -->
               <br>
             </p>
           </div>
@@ -268,116 +269,98 @@
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
       <div class="container has-text-justified">
+        <span class="title is-2 publication-title" style="font-size:1.5em;">Approximating the Bridge</span><br><br>
         <p>
-          <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
-          <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
-              Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
-              <div class="content has-text-centered">
+          <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models 
+            to approximate the bridge. This way, we leverage the rich priors learned over their datasets.</span>
+          <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process 
+            for solving image-to-image translation problems without requiring a paired image dataset. <br><br></span>
+              <!-- <div class="content has-text-centered">
                 <img src="./image_assets/schrodinger-bridge.svg" id="image_livingroom" width="99%">
-              </div>
+              </div> -->
               <span style="font-size:1.1em;"> We can build a DDIB by solving the forward (noising) PF-ODE to invert the source image to the latent distribution. </span>
-            <p>\[dx = [f(\mathbf{x}, t)-\frac{1}{2}g^2(t)\nabla_{\mathbf{x}} \log p_t(\mathbf{x})] dt \]</p>
+            <p>\[dx = [f(\mathrm{x}, t)-\frac{1}{2}g^2(t)\nabla_{\mathrm{x}} \log p_t(\mathrm{x})] dt \]</p>
             <span style="font-size:1.1em;"> We can then sample the corresponding target image by solving the reverse (denoising) PF-ODE. This deterministic conversion between
               image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
-          <br>
+            <br>
+            <div class="container has-text-centered">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
+                <source src="./video_assets/diagrams/bridgeanimation1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <br><br><br>
+            <span style="font-size:1.1em;">The SDS family of methods can be view as per-iteration estimates of the Schrödinger Bridge.
+              This estimate is subject to the following two sources of errors:<br></span>
+            <br>
+            <div class="container has-text-centered">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
+                <source src="./video_assets/diagrams/bridgeanimation2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <br>
+            <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error. </span>
+            <span style="font-size:1.1em;"> Fully simulating this bridge involves solving two PF-ODEs, which invokes 
+              dozens of neural function evaluations (NFEs) to estimate the gradient each iteration. Instead it is practical 
+              to use single step estimates, which are less accurate and can induce errors. 
+              Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[2]</a> and SDI <a href="https://lukoianov.com/sdi/">[3]</a> 
+              can be interpreted as reducing this error with a multi-step simulation to obtain \(\mathrm{x}_{\theta, t}\).<br></span>
+            <br>
+            <div class="container has-text-centered">
+              <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
+                <source src="./video_assets/diagrams/bridgeanimation3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <br>
+            <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch. </span>
+            <span style="font-size:1.1em;"> The dual diffusion bridge relies on 
+              \(\mathrm{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, 
+              \(x_{\theta}\). A series of works can be viewed as improving this error <a href=https://arxiv.org/abs/2305.16213>[4, </a>
+              <a href=https://arxiv.org/abs/2310.17590>5, </a><a href=https://arxiv.org/abs/2310.19415>6]</a> 
+              by computing \(\mathrm{\epsilon}_{\phi, \text{tgt}}\) more accurately. SDS (under high CFG) uses the uncondtional distribution
+              as a proxy for the current distribution, contributing to its characteristic artifacts.<br></span>
+            <br>
         </p>
       </div>
     </div>
     </div>
   </section>
 
-  <div class="hero-body" style="padding-inline: 260px;">
-    <div class="columns is-centered" id="div_livingroom" style="display: true;">
-      <div class="column">
-        <div class="container has-text-justified">
-          <p>
-            <span style="font-size:1.1em;">The SDS family of methods can be view as per-iteration estimates of the DDIB.
-              Suppose that \(\psi_{t^\prime, \text{src}}\) and \(\psi_{t^\prime, \text{tgt}}\) denote the paths obtained by solving the PF-ODE
-              from \(t\) to \(0\), both starting from  \(\mathbf{x}_{\theta, t}\), such that \(\psi_{0, \text{src}} \in p_\text{src}\), 
-              \(\psi_{0, \text{tgt}} \in p_\text{tgt}\), \(\psi_{t, \text{src}}=\psi_{t, \text{tgt}}=\mathbf{x}_{\theta, t}\) (simplify this language). 
-              This forms a dual diffusion bridge from \(\psi_{0, \text{src}}\) to \(\psi_{0, \text{tgt}}\), with displacement:<br></span>
-              <span style="font-size:1.1em;">  \[\Delta \mathbf{\epsilon}_\text{SBP}^* = \psi_{0, \text{tgt}} - \psi_{0, \text{src}}\] </span>
-              <span style="font-size:1.1em;">  Fully simulating this bridge involves solving two PF-ODEs, which invokes dozens of neural function evaluations (NFEs) to estimate the gradient each iteration. 
-                Instead, one can estimate each half of the bridge with a single-step prediction: </span>
-              <span style="font-size:1.1em;">  \[\mathbf{\epsilon}_\text{SBP} = \mathbf{\epsilon}_{\phi, \text{tgt}}(\mathbf{x}_{\theta, t})-\mathbf{\epsilon}_{\phi, \text{src}}(\mathbf{x}_{\theta, t})\] 
-                where we add noise \(\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})\) to the image \(x_{\theta}\) obtain a latent input for \(\mathbf{\epsilon}_{\phi}\) at timestep \(t\). 
-                That is, \(\mathbf{x}_{\theta, t}=\alpha_t \mathbf{x}+\sigma_t \mathbf{\epsilon}\). 
-                This estimate is subject to the following sources of errors.
-              </span>
-              <br><br>
-              <ol style="font-size:1.1em;">
-                <li>
-                    <p>First-order approximation error. Instead of performing full PF-ODE simulations, the single-step noising and prediction are less accurate and can induce errors. Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[3]</a> and SDI <a href="https://lukoianov.com/sdi/">[4]</a> can be interpreted as reducing this error with a multi-step simulation to obtain \(\mathbf{x}_{\theta, t}\)</p>
-                </li>
-                <br>
-                <li>
-                    <p>Source distribution mismatch. The dual diffusion bridge relies on \(\mathbf{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, \(x_{\theta}\). A series of works can be viewed as improving this error <a href="#your-link">[]</a> by computing more accurate \(\mathbf{\epsilon}_{\phi, \text{tgt}}\).</p>
-                </li>
-            </ol>
-            <br>
-          </p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content has-text-centered">
-          <img src="./image_assets/method2.png" id="image_livingroom" width="99%">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container is-max-desktop has-text-centered">
-
-        <div class="container has-text-justified">
-          <p>
-            <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. This way, we leverage the rich priors learned over their datasets. <br><br></span>
-              <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process for solving image-to-image translation problems without requiring a paired image dataset. 
-                Instead, DDIBs use two diffusion models trained on different domains. Analogously, we use one model with two different text conditions. <br><br></span>
-            <br>
-          </p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
   <!-- CONSISTENCY -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-            <h2 class="title is-3 has-text-centered">Text-based NeRF Optimization</h2>
+            <!-- <h2 class="title is-3 has-text-centered">Text-based NeRF Optimization</h2> -->
+            <div class="container has-text-centered">
+              <h2 class="title is-2 publication-title">Text-based NeRF Optimization </h2>
+            </div>
           </div>
         </div>
       </div>
       <div class="container is-max-desktop">
-          <div class="columns is-centered">
-              <div class="column is-6 has-text-right">
-                  <div class="title is-5 is-right">Select a sample to view: </div>
-              </div>
-              <div class="column has-text-left">
-                  <div class="select is-3 is-rounded">
-                    <select id="sect-2-sample-select" onchange="select_sample(this);">
-                      <option value="pineapple" id="sect-2-sample-opt-pineapple"> Pineapple </option>
-                      <option value="potato_tree" id="sect-2-sample-opt-potato_tree"> Potato tree </option>
-                      <option value="cake" id="sect-2-sample-opt-cake"> Wedding cake </option>
-                      <option value="tudor_house" id="sect-2-sample-opt-tudor_house"> Tudor house </option>
-                      <option value="cookies" id="sect-2-sample-opt-cookies"> Chocolate cookies </option>
-                      <option value="wooden_chair" id="sect-2-sample-opt-wooden_chair"> Wooden chair </option>
-                      <option value="cottage" id="sect-2-sample-opt-cottage"> Cottage </option>
-                      <option value="elephant_skull" id="sect-2-sample-opt-elephant_skull"> Elephant skull </option>
-                      <option value="llama" id="sect-2-sample-opt-llama"> Llama </option>
-                      <option value="teapot" id="sect-2-sample-opt-teapot"> Teapot </option>
-                      <option value="rock_moss" id="sect-2-sample-opt-rock_moss"> Rock with moss </option>
-                      <option value="seashells" id="sect-2-sample-opt-seashells"> Seashells </option>
-                      <option value="bulldog" id="sect-2-sample-opt-bulldog"> Bulldog </option>
-                      <option value="toucan" id="sect-2-sample-opt-toucan"> Toucan </option>
-                    </select>
-                  </div>
-              </div>
+        <div class="container has-text-centered">
+          <span style="font-size:1.1em;">Select a sample to view.</span><br><br>
+          <div class="select is-3 is-rounded">
+            <select id="sect-2-sample-select" onchange="select_sample(this);">
+              <option value="pineapple" id="sect-2-sample-opt-pineapple"> Pineapple </option>
+              <option value="potato_tree" id="sect-2-sample-opt-potato_tree"> Potato tree </option>
+              <option value="cake" id="sect-2-sample-opt-cake"> Wedding cake </option>
+              <option value="tudor_house" id="sect-2-sample-opt-tudor_house"> Tudor house </option>
+              <option value="cookies" id="sect-2-sample-opt-cookies"> Chocolate cookies </option>
+              <option value="wooden_chair" id="sect-2-sample-opt-wooden_chair"> Wooden chair </option>
+              <option value="cottage" id="sect-2-sample-opt-cottage"> Cottage </option>
+              <option value="elephant_skull" id="sect-2-sample-opt-elephant_skull"> Elephant skull </option>
+              <option value="llama" id="sect-2-sample-opt-llama"> Llama </option>
+              <option value="teapot" id="sect-2-sample-opt-teapot"> Teapot </option>
+              <option value="rock_moss" id="sect-2-sample-opt-rock_moss"> Rock with moss </option>
+              <option value="seashells" id="sect-2-sample-opt-seashells"> Seashells </option>
+              <option value="bulldog" id="sect-2-sample-opt-bulldog"> Bulldog </option>
+              <option value="toucan" id="sect-2-sample-opt-toucan"> Toucan </option>
+            </select>
           </div>
+        </div>
       </div>
+      <br><br>
       <div class="container is-max-desktop has-text-centered">
           <div class="columns is-centered">
               <div class="column is-5">
