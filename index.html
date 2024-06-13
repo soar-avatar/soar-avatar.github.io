@@ -302,7 +302,7 @@
               dozens of neural function evaluations (NFEs) to estimate the gradient each iteration. Instead it is practical 
               to use single step estimates, which are less accurate and can induce errors. 
               Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[2]</a> and SDI <a href="https://lukoianov.com/sdi/">[3]</a> 
-              can be interpreted as reducing this error with a multi-step simulation to obtain \(\mathrm{x}_{\theta, t}\).<br></span>
+              can be interpreted as reducing this error with a multi-step simulation.<br></span>
             <br>
             <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch </span><br>
             <div class="container has-text-centered">
@@ -312,11 +312,11 @@
             </div>
             <br>
             <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch. </span> -->
-            <span style="font-size:1.1em;"> The dual diffusion bridge relies on 
+            <span style="font-size:1.1em;"> Estimating the Schrödinger Bridge relies on 
               \(\mathrm{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, 
               \(x_{\theta}\). A series of works can be viewed as improving this error <a href=https://arxiv.org/abs/2305.16213>[4, </a>
-              <a href=https://arxiv.org/abs/2310.17590>5, </a><a href=https://arxiv.org/abs/2310.19415>6]</a> 
-              by computing \(\mathrm{\epsilon}_{\phi, \text{tgt}}\) more accurately. SDS (under high CFG) uses the uncondtional distribution
+              <a href=https://arxiv.org/abs/2310.17590>5, </a><a href=https://arxiv.org/abs/2310.19415>6]</a>. 
+              SDS (under high CFG) uses the uncondtional distribution
               as a proxy for the current distribution, contributing to its characteristic artifacts.<br></span>
             <br> <br>
             <div class="container has-text-centered">
