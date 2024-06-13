@@ -333,10 +333,16 @@
         <span style="font-size:1.1em;"> Our insight is that pre-trained diffusion models have learned the distribution of
           natural and corrupted images through a combination of powerful text representation and enormous
           image-caption datasets. We find that by <b>simply describing image corruptions with a text prompt</b>, we
-          can improve our estimate of the source distribution<br>.</span>
+          can improve our estimate of the source distribution.</span>
+          <br>
           <div class="container has-text-centered">
-            <img src="./image_assets/prompts.svg" id="image_livingroom" width="54%">
+            <img src="./image_assets/prompts.svg" id="image_livingroom" width="58%">
           </div>
+          <br>
+          <span style="font-size:1.1em;"> To describe the artifacts produced by SDS, we append standard negative descriptors 
+            and drop the descriptors of the high-quality generation. <b>That's it.</b> We find that the specifc descriptors are not 
+            too important and many variations work well.
+          </span>
       </div>
     </div>
     </div>
