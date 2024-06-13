@@ -37,7 +37,7 @@
 
     gtag('config', 'G-9VZKE74FPW');
   </script>
-  <title>Expressive Text-to-Image Generation with Rich Text</title>
+  <title>Rethinking Score Distillation as a Bridge Between Image Distributions</title>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -76,11 +76,11 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://mcallisterdavid.com/">David McAllister</a><sup>1</sup>&nbsp
+                <a href="https://mcallisterdavid.com/">David McAllister</a><sup>1*</sup>&nbsp
               </span>
               <span class="author-block">
                 <a href="https://songweige.github.io/">Songwei
-                  Ge</a><sup>2</sup>&nbsp</span>
+                  Ge</a><sup>2*</sup>&nbsp</span>
               <span class="author-block">
                 <a href="https://jbhuang0604.github.io/">Jia-Bin
                   Huang</a><sup>2</sup>&nbsp
@@ -110,6 +110,10 @@
                 &nbsp</span>
               <span class="author-block"><sup>2</sup>University of Maryland, College Park &nbsp</span>
             </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal contribution</span>
+            </div>
             <br>
             <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
               <source src="./video_assets/teaser/website_teaser_crop.mp4" type="video/mp4">
@@ -124,7 +128,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://rich-text-to-image.github.io/assets/rich_text_to_image_generation.pdf"
+                  <a href="./assets/sds_brige.pdf"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false"
@@ -139,7 +143,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2304.06720" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -147,7 +151,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/SongweiGe/rich-text-to-image"
+                  <a href=""
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false"
@@ -158,20 +162,11 @@
                         </path>
                       </svg>
                     </span>
-                    <span>Code</span>
+                    <span>Code (Coming soon)</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://huggingface.co/spaces/songweig/rich-text-to-image"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-edit"></i>
-                    </span>
-                    <span>Demo</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://rich-text-to-image.github.io/#bibtex"
+                  <a href="https://sds-bridge.github.io/#bibtex"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-obp"></i>
@@ -325,7 +320,20 @@
     </div>
   </section>
 
-  <!-- CONSISTENCY -->
+  <!-- Text-based Image Optimization -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+            <div class="container has-text-centered">
+              <h2 class="title is-2 publication-title">Text-based Image Optimization </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Text-based NeRF Optimization -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -403,34 +411,25 @@
       </div>
   </section>
 
+  <!-- Painting-to-Real -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+            <div class="container has-text-centered">
+              <h2 class="title is-2 publication-title">Painting-to-Real </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
           <div class="container is-max-desktop">
-            <div class="columns is-centered">
-              <div class="column is-full-width">
-                <h2 class="title is-3 has-text-centered">References</h2>
-                <div class="content has-text-justified">
-                  <p>
-                  </p>
-                  [1] Amir Hertz, Ron Mokady, Jay Tenenbaum, Kfir Aberman, Yael Pritch, and Daniel Cohen-Or. <a
-                    href="https://arxiv.org/abs/2208.01626">Prompt-to-prompt image editing with cross attention
-                    control.</a> arXiv:2208.01626, 2022.<br>
-                  [2] Tim Brooks, Aleksander Holynski, and Alexei A Efros. <a
-                    href="https://arxiv.org/abs/2211.09800">Instructpix2pix: Learning to follow image editing
-                    instructions.</a> CVPR, 2023<br>
-                  [3] Hila Chefer, Yuval Alaluf, Yael Vinker, Lior Wolf, and Daniel Cohen-Or. <a
-                    href="https://arxiv.org/abs/2301.13826">Attend-and-excite: Attention-based semantic guidance for
-                    text-to-image diffusion models.</a>arXiv preprint arXiv:2301.13826, 2023.<br>
-                  [4] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. <a
-                    href="https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html6">High-resolution
-                    image synthesis with latent diffusion models.</a>CVPR, 2022<br>
-                  <p></p>
-                </div>
-                <!-- Prompt Interpolation image -->
-              </div>
-            </div>
 
             <!-- Acknowledgements. -->
             <div class="columns is-centered">
@@ -438,10 +437,10 @@
                 <h2 class="title is-3 has-text-centered">Acknowledgment</h2>
                 <div class="content has-text-justified">
                   <p>
-                    We thank Mia Tang, Aaron Hertzmann, Nupur Kumari, Gaurav Parmar, Ruihan Gao, and Aniruddha Mahapatra
-                    for their helpful discussion, code reviewing, and paper reading. We thank AK, Radamés Ajna, and
-                    other HuggingFace team members for their help and support with our online demo. This work is partly
-                    supported by NSF award no. 239076, NSF grants no. IIS-1910132 and IIS-2213335.
+                    We thank Matthew Tancik, Jiaming Song, Riley Peterlinz, Ayaan Haque, Ethan Weber, Konpat Preechakul, Amit Kohli and Ben Poole for their helpful feedback and discussion. 
+                    This project is supported in part by a Google research scholar award and IARPA DOI/IBC No. 140D0423C0035. The
+                    views and conclusions contained herein are those of the authors and do not
+                    represent the official policies or endorsements of these institutions.
                   </p>
                 </div>
               </div>
@@ -456,12 +455,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title"><a id="bibtex">BibTeX</a></h2>
-      <pre><code>@inproceedings{ge2023expressive,
-      title={Expressive Text-to-Image Generation with Rich Text},
-      author={Ge, Songwei and Park, Taesung and Zhu, Jun-Yan and Huang, Jia-Bin},
-      booktitle={IEEE International Conference on Computer Vision (ICCV)},
-      year={2023}
-}</code></pre>
+      <pre><code>@article{mcallister2024rethinking,
+    title={Rethinking Score Distillation as a Bridge Between Image Distributions},
+    author={},
+    journal={arXiv preprint arXiv:},
+    year={2024}
+  }</code></pre>
     </div>
   </section>
 
@@ -483,42 +482,6 @@
     </div>
 
   </footer>
-
-
-  <script type="text/javascript">
-    var currentMethodList = ['ours', 'plain', 'full', 'aae', 'ip2p', 'p2p'];
-    var currentMethod = "ours";
-
-    function ChangeMethod(idx) {
-      var li_list = document.getElementById("method-view-ul").children;
-      for (i = 0; i < li_list.length; i++) {
-        li_list[i].className = "nav-link";
-      }
-      li_list[idx].className = "nav-link active";
-      currentMethod = currentMethodList[idx];
-
-      var image_livingroom = document.getElementById('image_livingroom');
-      var image_cityscape = document.getElementById('image_cityscape');
-      image_livingroom.src = "./image_assets/footnote/livingroom/livingroom_" + currentMethod + ".jpg";
-      image_cityscape.src = "./image_assets/footnote/cityscape/cityscape_" + currentMethod + ".jpg";
-    }
-    function ChangePrompt(idx) {
-      var li_list = document.getElementById("prompt-view-ul").children;
-      for (i = 0; i < li_list.length; i++) {
-        li_list[i].className = "nav-link";
-      }
-      li_list[idx].className = "nav-link active";
-      var div_livingroom = document.getElementById('div_livingroom');
-      var div_cityscape = document.getElementById('div_cityscape');
-      if (idx == 0) {
-        div_livingroom.style.display = "";
-        div_cityscape.style.display = "none";
-      } else {
-        div_livingroom.style.display = "none";
-        div_cityscape.style.display = "";
-      }
-    }
-  </script>
 
   <script src="./assets/js/sample.js"></script>
   <script src="./assets/js/juxtapose.js"></script>
