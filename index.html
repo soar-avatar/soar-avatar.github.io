@@ -190,9 +190,9 @@
                 <p>
                   <span style="font-size:1.1em;">Score distillation sampling<sup><a href="https://dreamfusion3d.github.io/">1</a></sup> enables 
                     the use of diffusion priors for tasks operating in data poor domains. However, it suffers from signficant artifacts that a 
-                    number of follow-up works have tried to address<sup><a href="https://arxiv.org/abs/2311.11284">[2,</a>
-                    <a href="https://lukoianov.com/sdi/">3, </a> <a href=https://arxiv.org/abs/2305.16213>4, </a>
-                   <a href=https://arxiv.org/abs/2310.17590>5, </a><a href=https://arxiv.org/abs/2310.19415>6]</a></sup>.
+                    number of follow-up works have tried to address<sup><a href="https://arxiv.org/abs/2311.11284">2</a>
+                    <a href="https://lukoianov.com/sdi/">3 </a> <a href=https://arxiv.org/abs/2305.16213>4 </a>
+                   <a href=https://arxiv.org/abs/2310.17590>5 </a><a href=https://arxiv.org/abs/2310.19415>6</a></sup>.
                    Here, we show the process of optimizing a for a 3D NeRF using a text-to-image model and SDS.
                   </span>
                   <br>
@@ -207,6 +207,7 @@
               </div>
             </div>
           </div>
+          <span class="title is-2 publication-title" style="font-size:1.5em;">SDS Approximates a Schrödinger Bridge</span><br><br>
           <div class="columns is-centered" id="div_livingroom" style="display: true;">
             <div class="column">
               <div class="content has-text-centered">
@@ -219,8 +220,10 @@
             <div class="column">
               <div class="container has-text-justified">
                 <p>
-                  <span style="font-size:1.1em;"> <b>We cast SDS as a Schrödinger Bridge (SB) problem</b>, which finds the optimal
-                    transport between two distributions. Specifically, these optimal paths connect the current optimized image distribution (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned
+                  <span style="font-size:1.1em;"> We show that SDS (and its variants) can be cast as a 
+                    Schrödinger Bridge (SB) problem, which aims to find the optimal transport between two 
+                    distributions. With SDS, these optimal paths connect the current optimized image distribution 
+                    (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned 
                     natural image distribution).<br><br></span>
                   <br>
                 </p>
@@ -237,7 +240,6 @@
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
       <div class="container has-text-justified">
-        <span class="title is-2 publication-title" style="font-size:1.5em;">SDS Approximates a Schrödinger Bridge</span><br><br>
         <p>
           <!-- <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models 
             to approximate the bridge. This way, we leverage the rich priors learned over their datasets.</span>
