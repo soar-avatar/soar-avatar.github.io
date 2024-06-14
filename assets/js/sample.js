@@ -56,6 +56,7 @@ function getPrompt(selectedValue) {
         "wooden_figuring": "An intricately carved, solid, wooden figurine, with jagged contours depicting an ancient deity, the wood grain visible under a matte finish, on a stone altar",
         "birdcage": "An oversized, porous, sphere-shaped birdcage, made of woven golden wires, with a matte finish, housing a small, mechanical, singing bird that flutters in a lifelike manner",
         "seashells": "Various hollow, asymmetrical, textured seashells, collected in a sand-filled, clear glass jar with a twine-tied neck, displayed on a windowsill",
+        "crown": "Imperial state crown of England.",
     };
 
     return prompts[selectedValue] || "Description not available.";
