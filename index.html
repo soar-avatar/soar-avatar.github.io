@@ -250,20 +250,20 @@
               image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
             <br> -->
             <span style="font-size:1.1em;">While SDS and its variants try to model this optimal path, 
-              it is ultimately a <em>per-iteration</em> approximation of it—this ultimately causes 
+              it is a <em>per-iteration</em> approximation of it—this ultimately causes 
               its characteristic artifacts.<br></span>
             <div class="columns is-centered" id="div_livingroom" style="display: true;">
               <div class="column">
                 <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
                   <source src="./video_assets/diagrams/bridge1split_1.mp4" type="video/mp4">
                 </video>
-                <span style="font-size:0.85em;"> A Schrödinger Bridge transports between corresponding samples in the source and target distributions.</span>
+                <span style="font-size:0.85em;"> An SB transports samples between source and target distributions.</span>
               </div>
               <div class="column">
                 <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
                   <source src="./video_assets/diagrams/bridge1split_2.mp4" type="video/mp4">
                 </video>
-                <span style="font-size:0.85em;"> SDS is best understood as sampling SB paths, subject to approximation error.</span>
+                <span style="font-size:0.85em;"> SDS approximates this optimal path per-iteration.</span>
               </div>
             </div>
             <!-- <div class="container has-text-centered">
