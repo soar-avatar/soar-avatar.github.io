@@ -222,9 +222,9 @@
                 <p>
                   <span style="font-size:1.1em;"> <b>We show that SDS (and its variants) can be cast as a 
                     Schrödinger Bridge (SB) problem</b>, which aims to find the optimal transport between two 
-                    distributions. With SDS, these optimal paths connect the current optimized image distribution 
-                    (e.g., renderings from a NeRF) to a target distribution (e.g., text-conditioned 
-                    natural image distribution).<br><br></span>
+                    distributions. SDS approximates this optimal path between the current optimized image distribution 
+                    (e.g., renderings from a NeRF) and a target distribution (e.g., text-conditioned natural 
+                    image distribution).<br><br></span>
                   <br>
                 </p>
               </div>
@@ -250,6 +250,9 @@
             <span style="font-size:1.1em;"> We can then sample the corresponding target image by solving the reverse (denoising) PF-ODE. This deterministic conversion between
               image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
             <br> -->
+            <span style="font-size:1.1em;">While SDS and its variants try to model this optimal path, 
+              it is ultimately a per-iteration approximation of it—this ultimately causes 
+              its characteristic artifacts.<br></span>
             <div class="columns is-centered" id="div_livingroom" style="display: true;">
               <div class="column">
                 <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
@@ -270,8 +273,7 @@
               </video>
             </div> -->
             <!-- <br><br><br> -->
-            <span style="font-size:1.1em;">SDS methods and their variants can be well understood as per-iteration estimates of the Schrödinger Bridge.
-              These estimates are subject to the following two sources of errors:<br></span>
+            <span style="font-size:1.1em;">There are two main types of errors in this approximation:<br></span>
             <!-- <br> -->
             <br>
             <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error </span><br>
@@ -475,7 +477,9 @@
           <div class="columns is-centered is-vcentered">
             <div class="container has-text-centered">
               <div class="column ">
-                  <h4 class="title is-4 has-text-centered" id="sect-2-prompt">A pineapple, detailed, high resolution, high quality, sharp.</h4>
+                  <!-- <h4 class="title is-4 has-text-centered" id="sect-2-prompt">A pineapple, detailed, high resolution, high quality, sharp.</h4> -->
+                  <span style="font-size:1.1em;" id="sect-2-prompt"> A pineapple, detailed, high resolution, high quality, sharp.
+                  </span>
                 </div>
               </div>
           </div>
