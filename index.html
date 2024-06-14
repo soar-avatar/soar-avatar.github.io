@@ -326,9 +326,9 @@
             <img src="./image_assets/prompts.svg" id="image_livingroom" width="58%">
           </div>
           <br>
-          <span style="font-size:1.1em;"> To describe the artifacts produced by SDS, we append standard negative descriptors 
-            and drop the descriptors of the high-quality generation. <b>That's it.</b> We find that the specific descriptors are not 
-            too important and many variations work well.
+          <span style="font-size:1.1em;"> Instead of approximating the current distribution with the unconditional distribution as in SDS, 
+            we can instead use this negatively prompted conditional distribution to better model the type of artifacts our optimized image 
+            variables might be experiencing. This simple change considerably improves results.
           </span>
           <div class="container has-text-centered">
             <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
@@ -495,6 +495,13 @@
           <div class="container has-text-centered">
             <h2 class="title is-2 publication-title" style="font-size:1.7em;">Painting-to-Real </h2>
           </div>
+          <br>
+          <span style="font-size:1.1em;"> We examine our method’s ability to serve as a general-purpose realism prior. 
+            An effective image prior should guide a painting toward a nearby natural
+            image through optimization. We simply append the negative descriptor "painting" for our gradient and initialize from the painting. 
+            Slide your mouse across to see the difference!
+          </span>
+          <br>
         </div>
       </div>
       <div class="container is-max-desktop has-text-centered">
