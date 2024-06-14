@@ -285,8 +285,8 @@
             <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error. </span> -->
             <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. 
               This requires solving two PF-ODEs, which invoke 
-              dozens of function evaluations (NFEs) to estimate the gradient each iteration. Instead it is practical 
-              to use single step estimates, which are less accurate and can induce errors. 
+              dozens of function evaluations (NFEs) to estimate the gradient at each iteration. Instead SDS uses a 
+              single step estimate, which is more practical, but in turn less accurate.
               Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[2]</a> and SDI <a href="https://lukoianov.com/sdi/">[3]</a> 
               can be interpreted as reducing this error with a multi-step simulation.<br></span>
             <br>
@@ -305,22 +305,23 @@
               SDS (under high CFG) uses the uncondtional distribution
               as a proxy for the current distribution, contributing to its characteristic artifacts.<br></span>
             <br> <br>
+            <span class="title is-2 publication-title" style="font-size:1.5em;">A Unified Framework</span><br><br>
             <div class="container has-text-centered">
               <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
                 <source src="./video_assets/diagrams/comparison_animated_2.mp4" type="video/mp4">
               </video>
             </div>
             <br>
-            <span style="font-size:1.1em;"> We show that this <b>unified framework</b> explains VSD's high quality results and the shortcomings 
-              of other, more efficient methods. Please read our paper for a thorough analysis.<br></span>
+            <span style="font-size:1.1em;"> We show that this unified framework can be applied to a 
+              number of different methods—it explains VSD's high quality results, as well as the 
+              shortcomings of other, more efficient methods. Check out our paper for a more thorough analysis.<br></span>
         </p>
         <br><br>
-        <span class="title is-2 publication-title" style="font-size:1.5em;">Our Simple Improvement</span><br><br>
-        <span style="font-size:1.1em;"> Our insight is that pre-trained diffusion models have learned the distribution of
-          natural and corrupted images through a combination of powerful text representation and enormous
-          image-caption datasets. We find that by <b>simply describing image corruptions with a text prompt</b>, we
-          can improve our estimate of the source distribution.</span>
-          <br>
+        <span class="title is-2 publication-title" style="font-size:1.5em;">A fast, but effective alternative</span><br><br>
+        <span style="font-size:1.1em;"> We know that pre-trained diffusion models understand the distributions of 
+          high quality and corrupted images and their correspondence with natural language. So, by 
+          simply <em>describing</em> image corruptions with a text prompt, we can try to better model our original source distribution.</span>
+          <br><br>
           <div class="container has-text-centered">
             <img src="./image_assets/prompts.svg" id="image_livingroom" width="58%">
           </div>
