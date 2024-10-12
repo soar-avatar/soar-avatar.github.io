@@ -33,9 +33,16 @@ body {
 
 .publication-title {
   font-family: "Aleo", serif;
-  margin-top: -20px;
+  margin-top: -10px;
   font-optical-sizing: auto;
   font-weight: 600;
+  font-style: normal;
+}
+.publication-subtitle {
+  font-family: "Aleo", serif;
+  margin-top: -10px;
+  font-optical-sizing: auto;
+  font-weight: 450;
   font-style: normal;
 }
 

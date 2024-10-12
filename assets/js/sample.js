@@ -1,25 +1,77 @@
 function select_sample(selectElement) {
     const selectedValue = selectElement.value;
+    // const selectedDir = selectDir.value;
 
     // Define the paths for each method
     const paths = {
-        "VSD": `./video_assets/nerf/VSD/${selectedValue}.mp4`,
+        "VSD": `./video_assets/recon/${selectedValue}.mp4`,
         "SDS": `./video_assets/nerf/SDS/${selectedValue}.mp4`,
         "Ours": `./video_assets/nerf/Ours/${selectedValue}.mp4`
     };
 
     // Update the source of each video element
     document.querySelector("#sect-2-sample-0 source").src = paths["VSD"];
-    document.querySelector("#sect-2-sample-1 source").src = paths["SDS"];
-    document.querySelector("#sect-2-sample-2 source").src = paths["Ours"];
+    // document.querySelector("#sect-2-sample-1 source").src = paths["SDS"];
+    // document.querySelector("#sect-2-sample-2 source").src = paths["Ours"];
 
     // Reload the video elements to reflect the new sources
     document.getElementById("sect-2-sample-0").load();
-    document.getElementById("sect-2-sample-1").load();
-    document.getElementById("sect-2-sample-2").load();
+    // document.getElementById("sect-2-sample-1").load();
+    // document.getElementById("sect-2-sample-2").load();
 
     // Update the description
     document.getElementById("sect-2-prompt").innerText = getPrompt(selectedValue);
+}
+
+function select_sample_pose(selectElement) {
+    const selectedValue = selectElement.value;
+    // const selectedDir = selectDir.value;
+
+    // Define the paths for each method
+    const paths = {
+        "VSD": `./video_assets/pose/${selectedValue}.mp4`,
+        "SDS": `./video_assets/nerf/SDS/${selectedValue}.mp4`,
+        "Ours": `./video_assets/nerf/Ours/${selectedValue}.mp4`
+    };
+
+    // Update the source of each video element
+    document.querySelector("#sect-3-sample-0 source").src = paths["VSD"];
+    // document.querySelector("#sect-2-sample-1 source").src = paths["SDS"];
+    // document.querySelector("#sect-2-sample-2 source").src = paths["Ours"];
+
+    // Reload the video elements to reflect the new sources
+    document.getElementById("sect-3-sample-0").load();
+    // document.getElementById("sect-2-sample-1").load();
+    // document.getElementById("sect-2-sample-2").load();
+
+    // Update the description
+    document.getElementById("sect-3-prompt").innerText = getPrompt(selectedValue);
+}
+
+
+function select_sample_cmp(selectElement) {
+    const selectedValue = selectElement.value;
+    // const selectedDir = selectDir.value;
+
+    // Define the paths for each method
+    const paths = {
+        "VSD": `./video_assets/cmp/${selectedValue}.mp4`,
+        "SDS": `./video_assets/nerf/SDS/${selectedValue}.mp4`,
+        "Ours": `./video_assets/nerf/Ours/${selectedValue}.mp4`
+    };
+
+    // Update the source of each video element
+    document.querySelector("#sect-4-sample-0 source").src = paths["VSD"];
+    // document.querySelector("#sect-2-sample-1 source").src = paths["SDS"];
+    // document.querySelector("#sect-2-sample-2 source").src = paths["Ours"];
+
+    // Reload the video elements to reflect the new sources
+    document.getElementById("sect-4-sample-0").load();
+    // document.getElementById("sect-2-sample-1").load();
+    // document.getElementById("sect-2-sample-2").load();
+
+    // Update the description
+    document.getElementById("sect-4-prompt").innerText = getPrompt(selectedValue);
 }
 
 // Function to return description based on selected sample
