@@ -176,7 +176,6 @@
             <!-- <video id="teaservid" autoplay="" muted="" loop="" playsinline="" width="100%">
               <source src="./video_assets/teaser/website_teaser_crop_4.mp4" type="video/mp4">
             </video> -->
-            <!-- <embed src="./assets/teaser_v3.pdf" width="100%" height="1000px" type='application/pdf'> -->
             <img src="./image_assets/teaser_v3.png" width="95%">
             <span style="font-size:1.1em; border-radius: 5px; padding: 6px; background-color: #d0d5ec;"><b>TLDR:</b> 
               A framework for human reconstruction from partial observations where parts of the body are unobserved.
@@ -242,77 +241,6 @@
       <div class="container is-max-desktop has-text-centered">
       <div class="container has-text-justified">
         <p>
-          <!-- <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models 
-            to approximate the bridge. This way, we leverage the rich priors learned over their datasets.</span>
-          <span style="font-size:1.1em;"> Dual Diffusion Implicit Bridges (DDIBs) compose a diffusion inversion and denoising process 
-            for solving image-to-image translation problems without requiring a paired image dataset. <br><br></span>
-              <span style="font-size:1.1em;"> We can build a DDIB by solving the forward (noising) PF-ODE to invert the source image to the latent distribution. </span>
-            <p>\[dx = [f(\mathrm{x}, t)-\frac{1}{2}g^2(t)\nabla_{\mathrm{x}} \log p_t(\mathrm{x})] dt \]</p>
-            <span style="font-size:1.1em;"> We can then sample the corresponding target image by solving the reverse (denoising) PF-ODE. This deterministic conversion between
-              image and latent representations is crucial to establish dual diffusion implicit bridges. </span>
-            <br> -->
-            <script>
-            /*
-              <span style="font-size:1.1em;">While SDS tries to model this optimal path, 
-                it is a <em>per-iteration</em> approximation of it—and this ultimately causes 
-                its characteristic artifacts.<br></span>
-              <div class="columns is-centered" id="div_livingroom" style="display: true;">
-                <div class="column">
-                  <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
-                    <source src="./video_assets/diagrams/bridge1split_1.mp4" type="video/mp4">
-                  </video>
-                  <span style="font-size:0.85em;"> An SB transports samples between source and target distributions.</span>
-                </div>
-                <div class="column">
-                  <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="100%">
-                    <source src="./video_assets/diagrams/bridge1split_2.mp4" type="video/mp4">
-                  </video>
-                  <span style="font-size:0.85em;"> SDS approximates this optimal path per-iteration.</span>
-                </div>
-              </div>
-              <!-- <div class="container has-text-centered">
-                <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="80%">
-                  <source src="./video_assets/diagrams/bridgeanimation1_2.mp4" type="video/mp4">
-                </video>
-              </div> -->
-              <!-- <br><br><br> -->
-              <span style="font-size:1.1em;">There are two main types of errors in this approximation:<br></span>
-              <!-- <br> -->
-              <br>
-              <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error </span><br>
-              <div class="container has-text-centered">
-                <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
-                  <source src="./video_assets/diagrams/bridgeanimation2_2.mp4" type="video/mp4">
-                </video>
-              </div>
-              <br>
-              <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">First-Order Approximation Error. </span> -->
-              <span style="font-size:1.1em;"> Instead of training a model to solve this problem directly, we use pre-trained diffusion models to approximate the bridge. 
-                This requires solving two PF-ODEs, which invoke 
-                dozens of function evaluations (NFEs) to estimate the gradient at each iteration. Instead, SDS uses a 
-                single step estimate, which is more practical, but in turn less accurate.
-                Recent works ISM <a href="https://arxiv.org/abs/2311.11284">[2]</a> and SDI <a href="https://lukoianov.com/sdi/">[3]</a> 
-                can be interpreted as reducing this error with a multi-step simulation.<br></span>
-              <br>
-              <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch Error </span><br>
-              <div class="container has-text-centered">
-                <video id="dollyzoom" autoplay="" muted="" loop="" playsinline="" width="70%">
-                  <source src="./video_assets/diagrams/bridgeanimation3_2.mp4" type="video/mp4">
-                </video>
-              </div>
-              <br>
-              <!-- <span class="title is-2 publication-title" style="font-size:1.2em;">Source Distribution Mismatch. </span> -->
-              <span style="font-size:1.1em;"> Estimating the Schrödinger Bridge relies on 
-                \(\mathrm{\epsilon}_{\phi, \text{src}}\) accurately estimating the distribution of the current sample, 
-                \(x_{\theta}\). 
-                SDS (under high CFG) uses the uncondtional distribution
-                as a proxy for the current distribution, contributing to its characteristic artifacts. 
-                A series of works can be viewed as improving this error <a href=https://arxiv.org/abs/2305.16213>[4, </a>
-                <a href=https://arxiv.org/abs/2310.17590>5, </a><a href=https://arxiv.org/abs/2310.19415>6]</a>.
-                <br></span>
-              <br> <br>
-              */
-          </script>
             <span class="title is-2 publication-title" style="font-size:1.5em;">A Unified Framework</span><br><br>
             <span style="font-size:1.1em;"> 
               Self-occlusion is common when capturing people in the
@@ -350,12 +278,92 @@
               number of different methods—it explains VSD's high quality results, as well as the 
               shortcomings of other, more efficient methods. Check out our paper for a more thorough analysis.<br></span> -->
         </p>
-        <!-- <br><br> -->
-        <!-- <span class="title is-2 publication-title" style="font-size:1.5em;">A fast, but effective alternative</span><br><br>
-        <span style="font-size:1.1em;"> We know that pre-trained diffusion models understand the distributions of 
-          high quality and corrupted images and their correspondence with natural language. So, by 
-          simply <em>describing</em> image corruptions with a text prompt, we can try to better model our original source distribution.</span>
-          <br><br> -->
+        <br><br>
+        <span class="title is-2 publication-title" style="font-size:1.5em;">Our Results</span><br><br>
+        <span class="title is-2 publication-title" style="font-size:1.2em;">Novel View Rendering</span><br><br>
+        <span style="font-size:1.1em;"> We show novel view rendering results for our reconstructed avatars, including RGB, normal, and occlusion.</span>
+          <br><br>
+          <div class="hero is-light is-small">
+            <div class="hero-body is-light">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-steve">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/0_dance_woman.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/1_dance_man.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/2_dance_man.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/3_gangnam.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/4_kid.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/recon/5_man.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <span class="title is-2 publication-title" style="font-size:1.2em;">Novel Pose Rendering</span><br><br>
+          <span style="font-size:1.1em;"> We animate our reconstructed avatars in novel poses.</span>
+          <br><br>
+          <div class="hero is-light is-small">
+            <div class="hero-body is-light">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-steve">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/pose/dance0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/pose/dance1.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <br><br>
+          <span class="title is-2 publication-title" style="font-size:1.5em;">Comparison</span><br><br>
+          <span style="font-size:1.1em;">We compare our method with GART and GaussianAvatar, showing the rendered RGB and normal maps for each. Our approach produces more realistic and detailed results in terms of both texture and structure.</span>
+          <br><br>
+          <div class="hero is-light is-small">
+            <div class="hero-body is-light">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-steve">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/cmp/dance.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/cmp/man.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-chair-tp">
+                  <video poster="" autoplay controls muted loop height="100%">
+                    <source src="./video_assets/cmp/dance.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- <div class="container has-text-centered">
             <img src="./image_assets/prompts.svg" id="image_livingroom" width="58%">
           </div> -->
@@ -381,7 +389,8 @@
     </div>
     </div>
   </section>
-
+  <script>
+  /*
   <!-- Text-based Image Optimization -->
   <section class="section">
     <div class="container is-max-desktop">
@@ -392,9 +401,49 @@
           </div>
         </div>
       </div>
+      <!-- <span class="title is-2 publication-title" style="font-size:1.5em;">A Unified Framework</span><br><br> -->
+    </div>
+    <br>
+    <div class="container is-max-desktop">
+      <div class="hero is-light is-small">
+        <div class="hero-body is-light">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/0_dance_woman.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/1_dance_man.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/2_dance_man.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/3_gangnam.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/4_kid.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" autoplay controls muted loop height="100%">
+                <source src="./video_assets/recon/5_man.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
       <!-- We show that our methods works well on challenging sequences where the human avatar is severely self-occluded. -->
-      <div class="container is-max-desktop">
+      <!-- <div class="container is-max-desktop">
         <div class="container has-text-centered">
           <span style="font-size:1.1em;">Select a sample to view.</span><br><br>
           <div class="select is-3 is-rounded">
@@ -407,13 +456,13 @@
         </div>
         <br><br>
       </div>
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <video width="100%" onended="this.currentTime = 0; this.play();" autoplay="" muted="" playsinline="" id="sect-2-sample-0">
-              <source src="./video_assets/recon/dance.mp4" type="video/mp4">
-            </video>
-          </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <video width="100%" onended="this.currentTime = 0; this.play();" autoplay="" muted="" playsinline="" id="sect-2-sample-0">
+            <source src="./video_assets/recon/dance.mp4" type="video/mp4">
+          </video>
         </div>
+      </div> -->
       
     </div>
   </section>
@@ -426,15 +475,33 @@
           </div>
         </div>
       </div>
-    </div>
+      <br>
       <div class="container is-max-desktop">
+        <div class="hero is-light is-small">
+          <div class="hero-body is-light">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-steve">
+                <video poster="" autoplay controls muted loop height="100%">
+                  <source src="./video_assets/pose/dance0.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-chair-tp">
+                <video poster="" autoplay controls muted loop height="100%">
+                  <source src="./video_assets/pose/dance1.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- <div class="container is-max-desktop">
         <div class="container has-text-centered">
           <span style="font-size:1.1em;">Select a sample to view.</span><br><br>
           <div class="select is-3 is-rounded">
             <select id="sect-3-sample-select" onchange="select_sample_pose(this);">
               <option value="dance1" id="sect-3-sample-opt-toucan"> Dancing Woman</option>
               <option value="dance0" id="sect-3-sample-opt-dance"> Dancing Man</option>
-              <!-- <option value="dance0" id="sect-2-sample-opt-toucan"> Dancing Man 2</option> -->
             </select>
           </div>
         </div>
@@ -446,7 +513,7 @@
               <source src="./video_assets/pose/dance1.mp4" type="video/mp4">
             </video>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
   <!-- Text-based NeRF Optimization -->
@@ -461,26 +528,50 @@
           </div>
         </div>
       </div>
-      <!-- We show that our methods works well on the challenging task of novel view rendering even when the human avatar is severely self-occluded. -->
+      <br>
       <div class="container is-max-desktop">
+        <div class="hero is-light is-small">
+          <div class="hero-body is-light">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-steve">
+                <video poster="" autoplay controls muted loop height="100%">
+                  <source src="./video_assets/cmp/dance.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-chair-tp">
+                <video poster="" autoplay controls muted loop height="100%">
+                  <source src="./video_assets/cmp/man.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-chair-tp">
+                <video poster="" autoplay controls muted loop height="100%">
+                  <source src="./video_assets/cmp/dance.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- </div> -->
+      <!-- </div> -->
+      <!-- We show that our methods works well on the challenging task of novel view rendering even when the human avatar is severely self-occluded. -->
+      <!-- <div class="container is-max-desktop">
         <div class="container has-text-centered">
           <span style="font-size:1.1em;">Select a sample to view.</span><br><br>
           <div class="select is-3 is-rounded">
             <select id="sect-4-sample-select" onchange="select_sample_cmp(this);">
               <option value="dance" id="sect-4-sample-opt-dance"> Dancing Woman </option>
               <option value="man" id="sect-4-sample-opt-toucan"> Dancing Man</option>
-              <!-- <option value="dance0" id="sect-3-sample-opt-toucan"> Dancing Man 2</option> -->
             </select>
           </div>
         </div>
         <br><br>
-        <!-- <div class="container is-max-desktop"> -->
         <div class="columns is-centered">
           <video width="100%" onended="this.currentTime = 0; this.play();" autoplay="" muted="" playsinline="" id="sect-4-sample-0">
             <source src="./video_assets/cmp/dance.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -652,7 +743,8 @@
         </div>
     </div>
   </section> -->
-
+  */
+  </script>
   
   <!-- <section class="section">
     <div class="container is-max-desktop">
@@ -720,6 +812,8 @@
   <script src="./assets/js/bulma-carousel.min.js"></script>
   <script src="./assets/js/bulma-slider.min.js"></script>
   <script src="./assets/js/magnifier.js"></script>
+  <script src="./assets/js/index.js"></script>
+
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 
